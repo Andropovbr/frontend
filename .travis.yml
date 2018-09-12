@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t andropovbr/frontend -f Dockerfile.dev .
+
+script:
+  - docker run andropovbr/frontend npm run test -- --coverage
